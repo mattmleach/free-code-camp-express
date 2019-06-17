@@ -17,7 +17,11 @@ app.get("/json", (req, res) => {
 
     const message = "Hello json";
 
-    res.json({ "message": process.env.MESSAGE_STYLE === "uppercase" ? message.toUpperCase() : message });
+    res.json({ 
+        "message": process.env.MESSAGE_STYLE === "uppercase" 
+            ? message.toUpperCase() 
+            : message 
+    });
     
 });
 
@@ -26,6 +30,12 @@ app.get('/now', (req, res, next) => {
   next();
 }, (req, res, next) =>{
     res.json({ time: req.time });
+});
+
+app.get('/:word/echo', (req, res) => {
+  res.json({
+      "echo": req.params.word
+  });
 });
 
 //---------- DO NOT EDIT BELOW THIS LINE --------------------
