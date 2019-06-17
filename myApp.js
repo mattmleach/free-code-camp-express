@@ -12,7 +12,7 @@ var app = express();
 
 
 /** 2) A first working Express Server */
-app.get((req, res) => {
+app.get("/", (req, res) => {
     res.send("Hello Express");
 });
 
