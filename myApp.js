@@ -1,6 +1,7 @@
-var dotenv = require('dotenv').config();
-var express = require('express');
-var app = express();
+let dotenv = require('dotenv').config();
+let bodyParser = require('body-parser');
+let express = require('express');
+let app = express();
 
 app.use((req, res, next) => {
     console.log(`${req.method} ${req.path} - ${req.ip}`);
@@ -8,6 +9,8 @@ app.use((req, res, next) => {
 });
 
 app.use(express.static(__dirname + "/public"));
+
+app.use(bodyParser.urlencoded({ extended: false }).extended = false);
 
 app.get("/", (req, res) => {
     res.sendFile(__dirname + "/views/index.html");
